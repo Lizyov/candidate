@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recette de cannelés</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #f9f1e8;">
+  <div class="container mt-5">
+    <h1 class="mt-4 mb-3" style="color: #e67e22;">Recette de cannelés</h1>
+
+    <h2 class="mb-3" style="color: #f39c12;">Ingrédients</h2>
+    <ul id="ingredients-list" class="list-group">
+    </ul>
+    <div class="row">
+
+        <div class="col-md-4">
+          <div class="card mb-3" style="background-color: #f9e79f;">
+            <img src="https://raw.githubusercontent.com/sigilium/candidate/main/pictures/1-sugar.webp" class="card-img-top" alt="Sucre en poudre">
+            <div class="card-body">
+              <p class="card-text">Sucre en poudre</p>
+              <p class="card-text">200 grams</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-3" style="background-color: #f9e79f;">
+              <img src="https://raw.githubusercontent.com/sigilium/candidate/main/pictures/2-milk.webp" class="card-img-top" alt="Lait">
+              <div class="card-body">
+                <p class="card-text">Lait</p>
+                <p class="card-text">50 cl</p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="card mb-3" style="background-color: #f9e79f;">
+              <img src="https://raw.githubusercontent.com/sigilium/candidate/main/pictures/3-flour.webp" class="card-img-top" alt="Farine">
+              <div class="card-body">
+                <p class="card-text">Farine</p>
+                <p class="card-text">100 grams</p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="card mb-3" style="background-color: #f9e79f;">
+              <img src="https://raw.githubusercontent.com/sigilium/candidate/main/pictures/4-vanilla.webp" class="card-img-top" alt="Vanille">
+              <div class="card-body">
+                <p class="card-text">Vanille</p>
+                <p class="card-text">1/2 gousse</p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="card mb-3" style="background-color: #f9e79f;">
+              <img src="https://raw.githubusercontent.com/sigilium/candidate/main/pictures/5-rhum.webp" class="card-img-top" alt="Rhum">
+              <div class="card-body">
+                <p class="card-text">Rhum</p>
+                <p class="card-text">3 spoons</p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="card mb-3" style="background-color: #f9e79f;">
+              <img src="https://raw.githubusercontent.com/sigilium/candidate/main/pictures/6-egg-yolk.webp" class="card-img-top" alt="Jaune d'oeuf">
+              <div class="card-body">
+                <p class="card-text">Jaune d'oeuf</p>
+                <p class="card-text">2 units</p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="card mb-3" style="background-color: #f9e79f;">
+              <img src="https://raw.githubusercontent.com/sigilium/candidate/main/pictures/7-butter.webp" class="card-img-top" alt="Beurre">
+              <div class="card-body">
+                <p class="card-text">Beurre</p>
+                <p class="card-text">25 grams</p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="card mb-3" style="background-color: #f9e79f;">
+              <img src="https://raw.githubusercontent.com/sigilium/candidate/main/pictures/8-egg.webp" class="card-img-top" alt="Oufs entiers">
+              <div class="card-body">
+                <p class="card-text">Oeufs entiers</p>
+                <p class="card-text">2 units</p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <h2 class="mt-4 mb-3" style="color: #f39c12;">Timing</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Total : <span id="total-time"></span></li>
+      <li class="list-group-item">Préparation : <span id="preparation-time"></span></li>
+      <li class="list-group-item">Repos : <span id="rest-time"></span></li>
+      <li class="list-group-item">Cuisson : <span id="cooking-time"></span></li>
+    </ul>
+
+    <h2 class="mt-4 mb-3" style="color: #f39c12;">Étapes</h2>
+    <ol id="steps-list" class="list-group">
+    </ol>
+  </div>
+
+  <script>
+    var jsonData = {
+  "ingredients": [
+    {
+      "id": 1,
+      "name": "sugar",
+      "translated_name": [{ "fr": "Sucre en poudre" }],
+      "quantity": "200",
+      "unit": "grams",
+      "picture": "1-sugar.webp"
+    },
+    {
+      "id": 2,
+      "name": "milk",
+      "translated_name": [{ "fr": "Lait" }],
+      "quantity": "50",
+      "unit": "cl",
+      "picture": "2-milk.webp"
+    },
+    {
+      "id": 3,
+      "name": "flour",
+      "translated_name": [{ "fr": "Farine" }],
+      "quantity": "100",
+      "unit": "grams",
+      "picture": "3-flour.webp"
+    },
+    {
+      "id": 4,
+      "name": "vanilla",
+      "translated_name": [{ "fr": "Gousse de vanille" }],
+      "quantity": "1/2",
+      "unit": "gousse",
+      "picture": "4-vanilla.webp"
+    },
+    {
+      "id": 5,
+      "name": "rhum",
+      "translated_name": [{ "fr": "Rhum" }],
+      "quantity": "3",
+      "unit": "spoons",
+      "picture": "5-rhum.webp"
+    },
+    {
+      "id": 6,
+      "name": "egg-yolk",
+      "translated_name": [{ "fr": "Jaune d'oeuf" }],
+      "quantity": "2",
+      "unit": "units",
+      "picture": "6-egg-yolk.webp"
+    },
+    {
+      "id": 7,
+      "name": "butter",
+      "translated_name": [{ "fr": "Beurre" }],
+      "quantity": "25",
+      "unit": "grams",
+      "picture": "7-butter.webp"
+    },
+    {
+      "id": 8,
+      "name": "egg",
+      "translated_name": [{ "fr": "Oeufs entiers" }],
+      "quantity": "2",
+      "unit": "units",
+      "picture": "8-egg.webp"
+    }
+  ],
+  "timing": {
+    "total": { "quantity": "70", "unit": "minutes" },
+    "preparation": { "quantity": "10", "unit": "minutes" },
+    "rest": { "quantity": "1440", "unit": "minutes" },
+    "cooking": { "quantity": "60", "unit": "minutes" }
+  },
+  "steps": [
+    {
+      "order": 1,
+      "ingredients": [2, 4, 7],
+      "description": "La veille : faire bouillir le lait avec la vanille et le beurre. "
+    },
+    {
+      "order": 2,
+      "ingredients": [1, 2, 3, 6, 8],
+      "description": "Pendant ce temps, mélanger la farine, le sucre puis incorporer les oeufs d'un seul coup, verser ensuite le lait bouillant."
+    },
+    {
+      "order": 3,
+      "ingredients": [5],
+      "description": "Mélanger doucement afin d'obtenir une pâte fluide comme une pâte à crêpes, laisser refroidir, puis ajouter le rhum."
+    },
+    {
+      "order": 4,
+      "ingredients": [],
+      "description": "Placer au réfrigérateur 24 heures au minimum, 48 heures au maximum. "
+    },
+    {
+      "order": 5,
+      "ingredients": [],
+      "description": "Le jour J : sortir la pâte du frigo au moins une heure avant la cuisson."
+    },
+    {
+      "order": 6,
+      "ingredients": [],
+      "description": "Préchauffer le four à thermostat 9 (270°C)."
+    },
+    {
+      "order": 7,
+      "ingredients": [],
+      "description": "Verser la pâte dans les moules, en ne les remplissant qu'aux 3/4: poser les moules sur une tôle, et cuire à th. 9 pendant 5 minutes, puis baisser le thermostat à 6 (180°C) et continuer la cuisson pendant 1 heure (au moins, cela dépend de votre four, chez moi ça prend 1h20!): le cannelé doit avoir une croûte brune et un intérieur bien moelleux. "
+    },
+    {
+      "order": 8,
+      "ingredients": [],
+      "description": "Démouler encore chaud."
+    }
+  ]
+}
+;
+
+    function getTranslatedName(ingredient) {
+      var lang = 'fr'; // Langue française
+      for (var i = 0; i < ingredient.translated_name.length; i++) {
+        if (ingredient.translated_name[i].hasOwnProperty(lang)) {
+          return ingredient.translated_name[i][lang];
+        }
+      }
+      return ingredient.name;
+    }
+
+    function displayRecipe() {
+      var ingredientsList = document.getElementById('ingredients-list');
+      var totaltime = document.getElementById('total-time');
+      var preparationTime = document.getElementById('preparation-time');
+      var restTime = document.getElementById('rest-time');
+      var cookingTime = document.getElementById('cooking-time');
+      var stepsList = document.getElementById('steps-list');
+
+      jsonData.ingredients.forEach(function (ingredient) {
+        var name = getTranslatedName(ingredient);
+        var listItem = document.createElement('li');
+        listItem.textContent = ingredient.quantity + ' ' + ingredient.unit + ' de ' + name;
+        ingredientsList.appendChild(listItem);
+      });
+
+      totaltime.textContent = jsonData.timing.total.quantity + ' ' + jsonData.timing.total.unit;
+      preparationTime.textContent = jsonData.timing.preparation.quantity + ' ' + jsonData.timing.preparation.unit;
+      restTime.textContent = jsonData.timing.rest.quantity + ' ' + jsonData.timing.rest.unit;
+      cookingTime.textContent = jsonData.timing.cooking.quantity + ' ' + jsonData.timing.cooking.unit;
+
+      jsonData.steps.forEach(function (step) {
+        var ingredientsHTML = '';
+        step.ingredients.forEach(function (ingredientId) {
+          var ingredient = jsonData.ingredients.find(function (ingredient) {
+            return ingredient.id === ingredientId;
+          });
+        });
+
+        var listItem = document.createElement('li');
+        listItem.innerHTML = '<p>Étape ' + step.order + ': ' + step.description + '</p>';
+        stepsList.appendChild(listItem);
+      });
+    }
+
+    displayRecipe();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
